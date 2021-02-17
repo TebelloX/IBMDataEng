@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://skills-network-assets.s3.us.cloud-object-storage.appdomain.cloud/styles/sn.css">
+  </head>
+  <body>
+    <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Lab%2009%20-%20JOIN%20Operations/images/IDSNlogo.png" width="200" height="200"><br><br><br>
+    <h1>Hands-on Lab 8: JOIN Operations</h1>
+    <p>The practice problems for this Lab will provide hands on experience with the different kinds of join operations that we learned in this Module. We will be using the same HR Database that we used in the previous module.</p>
+    <p><strong>IMPORTANT</strong>: This lab assumes that you have already created and populated the tables in the sample HR database schema illustrated below in your instance of Db2 on IBM Cloud. If you have not done this yet, please complete the lab in the previous module before you start this one.</p>
+    <h1>Objectives</h1>
+    <p>After completing this lab you will be able to:</p>
+    <ol>
+      <li>Use join operations on the Db2 database instance</li>
+      <li>Use SQL editor to run and check queries</li>
+    </ol>
+    <h1>HR Database</h1>
+    <p>We will be working on a sample HR database for this Lab. This HR database schema consists of 5 tables called EMPLOYEES, JOB_HISTORY, JOBS, DEPARTMENTS and LOCATIONS. The following diagram shows the tables for the HR database with a few rows of sample data:<br></p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Lab%2009%20-%20JOIN%20Operations/images/L8_01_FiveHRDBTables.jpg" alt="Use the EMPLOYEES and DEPARTMENTS tables created previously.">
+    </p>
+    <h1>Exercises:</h1>
+    <p>Follow these steps to create and run the queries indicated below:</p>
+    <ol>
+      <li>
+        <p>Navigate to the Run SQL tool in Db2 on Cloud.</p>
+      </li>
+      <li>
+        <p>Compose query and run it.</p>
+      </li>
+      <li>
+        <p>Check the Logs created under the Results section. Looking at the contents of the Log explains whether the SQL statement ran successfully. Also look at the query results to ensure the output is what you expected.</p>
+      </li>
+    </ol>
+    <p>The solutions to the queries are provided if you get stuck.</p>
+    <p><strong>Query 1A</strong>: <strong>Select the names and job start dates of all employees who work for the department number 5.</strong></p>
+    <p>[Hint: Use the Inner join operation with the EMPLOYEES table as the left table and the JOB_HISTORY table as the right table.]</p>
+    <p><strong>Query 1B: Select the names, job start dates, and job titles of all employees who work for the department number 5.</strong></p>
+    <p>[Hint: Perform an INNER JOIN with 3 tables – EMPLOYEES, JOB_HISTORY, JOBS.]</p>
+    <p><strong>Query 2A: Perform a Left Outer Join on the EMPLOYEES and DEPARTMENT tables and select employee id, last name, department id and department name for all employees.</strong></p>
+    <p>[Hint: Use the Left Outer Join operation with the EMPLOYEES table as the left table and the DEPARTMENTS table as the right table.]</p>
+    <p><strong>Query 2B: Re-write the query for 2A to limit the result set to include only the rows for employees born before 1980.</strong></p>
+    <p>[Hint: use a WHERE clause. Could also use an INNER JOIN.]</p>
+    <p><strong>Query 2C: Re-write the query for 2A to have the result set include all the employees but department names for only the employees who were born before 1980.</strong></p>
+    <p>[Hint: use an AND in the INNER JOIN ON clause.]</p>
+    <p><strong>Query 3A: Perform a Full Join on the EMPLOYEES and DEPARTMENT tables and select the First name, Last name and Department name of all employees.</strong></p>
+    <p>[Hint: Use the Full Outer Join operation with the EMPLOYEES table as the left table and the DEPARTMENTS table as the right table.]</p>
+    <p><strong>Query 3B: Re-write Query 3A to have the result set include all employee names but department id and department names only for male employees.</strong></p>
+    <p>[Hint: Add an AND in Query 3A to filter on male employees in the ON clause. Can also use Left Outer Join.]</p>
+    <h1>Summary</h1>
+    <p>In this lab you learned how to work with different join operations using the Db2 on Cloud database.</p>
+    <p>Thank you for completing this lab!</p>
+    <h1>Lab Solutions</h1>
+    <p>Please follow these steps to get the answers to the queries:</p>
+    <ol>
+      <li>
+        <p>Navigate to the Run SQL tool on Db2 on Cloud.</p>
+      </li>
+      <li>
+        <p>Download the <a href="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Lab%2009%20-%20JOIN%20Operations/scripts/JOIN_Solution.sql">Solution script</a> files and <a href="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Lab%2009%20-%20JOIN%20Operations/scripts/JOIN_Solution.txt">text files</a> from the LAB in the course. Open the file with .sql extension in the editor.</p>
+      </li>
+    </ol>
+    <ol start="3">
+      <li>Run the queries. Looking at the Result set and contents of the Log explains whether the SQL statement you ran was successful and returned the correct results.</li>
+    </ol>
+    <h2>Author(s)</h2>
+    <p><a href="https://www.linkedin.com/in/ravahuja/?originalSubdomain=ca">Rav Ahuja</a></p>
+    <h2>Changelog</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Version</th>
+          <th>Changed by</th>
+          <th>Change Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>25-Jun-20</td>
+          <td>2.0</td>
+          <td>Lavanya</td>
+          <td>Reorganized Labs</td>
+        </tr>
+        <tr>
+          <td>25-Jun-20</td>
+          <td>1.1</td>
+          <td>Steve Hord</td>
+          <td>Revise Objectives section</td>
+        </tr>
+        <tr>
+          <td>05-Jun-20</td>
+          <td>1.0</td>
+          <td>Rose Malcolm</td>
+          <td>Initial version created</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2></h2>
+    <h3 align="center">© IBM Corporation 2020. All rights reserved.</h3>
+    <h3></h3>
+    <script>window.addEventListener('load', function() {
+snFaculty.inject();
+});</script>
+    <script src="https://skills-network-assets.s3.us.cloud-object-storage.appdomain.cloud/scripts/inject.min.js"></script>
+  </body>
+</html>

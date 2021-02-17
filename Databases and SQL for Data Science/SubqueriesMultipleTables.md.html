@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://skills-network-assets.s3.us.cloud-object-storage.appdomain.cloud/styles/sn.css">
+  </head>
+  <body>
+    <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%204/images/IDSNlogo.png" width="200" height="200">
+    <h2>LAB 1: Hands-on Lab: Sub-queries, Multiple Tables</h2>
+    <p>Estimated time needed: <strong>30</strong> minutes</p>
+    <h3>Objective for Exercise:</h3>
+    <ul>
+      <li>Learn about Sub-queries &#x26; Multiple Table in SQL.</li>
+    </ul>
+    <h2>LAB: Practice Sub-Queries and Working with Multiple Tables</h2>
+    <p>Now lets practice sub-queries and working with multiple tables. Use the EMPLOYEES and DEPARTMENTS tables created previously and execute the queries in the last two lessons.</p>
+    <p>Here are the queries to save you some time typing them. Please execute these queries and verify the results:</p>
+    <h2>Part A: Sub-Queries and Nested-Selects</h2>
+    <p>Query A1: Enter a failing (i.e. which gives an error) to retrieve all employees whose salary is greater than the average salary</p>
+    <p>select * from employees where salary > AVG(salary)</p>
+    <p>Query A2: Enter a working query using a sub-select to retrieve all employees whose salary is greater than the average salary</p>
+    <p>select EMP_ID, F_NAME, L_NAME, SALARY from employees where SALARY > (select AVG(SALARY) from employees);</p>
+    <p>Query A3: Enter a failing query (i.e. that gives an error) that retrieves all employees records and average salary in every row</p>
+    <p>select EMP_ID, SALARY, AVG(SALARY) AS AVG_SALARY from employees ;</p>
+    <p>Query A4: Enter a Column Expression that retrieves all employees records and average salary in every row</p>
+    <p>select EMP_ID, SALARY, ( select AVG(SALARY) from employees ) AS AVG_SALARY from employees ;</p>
+    <p>Query A5: Enter a Table Expression that retrieves only the columns with non-sensitive employee data</p>
+    <p>select * from ( select EMP_ID, F_NAME, L_NAME, DEP_ID from employees) AS EMP4ALL ;</p>
+    <h2>Part B: Accessing Multiple Tables with Sub-Queries</h2>
+    <p>Query B1: Retrieve only the EMPLOYEES records that correspond to departments in the DEPARTMENTS table</p>
+    <p>select * from employees where DEP_ID IN ( select DEPT_ID_DEP from departments );</p>
+    <p>Query B2: Retrieve only the list of employees from location L0002</p>
+    <p>select * from employees where DEP_ID IN ( select DEPT_ID_DEP from departments where LOC_ID = 'L0002' );</p>
+    <p>Query B3: Retrieve the department ID and name for employees who earn more than $70,000</p>
+    <p>select DEPT_ID_DEP, DEP_NAME from departments where DEPT_ID_DEP IN ( select DEP_ID from employees where SALARY > 70000 ) ;</p>
+    <p>Query B4: Specify 2 tables in the FROM clause</p>
+    <p>select * from employees, departments;</p>
+    <h2>Accessing Multiple Tables with Implicit Joins</h2>
+    <p>Query B5: Retrieve only the EMPLOYEES records that correspond to departments in the DEPARTMENTS table</p>
+    <p>select * from employees, departments where employees.DEP_ID = departments.DEPT_ID_DEP;</p>
+    <p>Query B6: Use shorter aliases for table names</p>
+    <p>select * from employees E, departments D where E.DEP_ID = D.DEPT_ID_DEP;</p>
+    <p>Query B7: Retrieve only the Employee ID and Department name in the above query</p>
+    <p>select EMP_ID, DEP_NAME from employees E, departments D where E.DEP_ID = D.DEPT_ID_DEP;</p>
+    <p>Query B8: In the above query specify the fully qualified column names with aliases in the SELECT clause</p>
+    <p>select E.EMP_ID, D.DEP_NAME from employees E, departments D where E.DEP_ID = D.DEPT_ID_DEP</p>
+    <h2>Author(s)</h2>
+    <h4>Rav Ahuja</h4>
+    <h4></h4>
+    <h2>Changelog</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Version</th>
+          <th>Changed by</th>
+          <th>Change Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2020-08-27</td>
+          <td>2.0</td>
+          <td>Simran</td>
+          <td>Migrated Lab to Markdown and added to course repo in GitLab</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2></h2>
+    <h3 align="center">© IBM Corporation 2020. All rights reserved.</h3>
+    <h3></h3>
+    <script>window.addEventListener('load', function() {
+snFaculty.inject();
+});</script>
+    <script src="https://skills-network-assets.s3.us.cloud-object-storage.appdomain.cloud/scripts/inject.min.js"></script>
+  </body>
+</html>

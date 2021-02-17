@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://skills-network-assets.s3.us.cloud-object-storage.appdomain.cloud/styles/sn.css">
+  </head>
+  <body>
+    <center>
+      <img src="https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/Logos/organization_logo/organization_logo.png" width="300" alt="cognitiveclass.ai logo">
+    </center>
+    <h2>LAB: String Patterns, Sorting &#x26; Grouping</h2>
+    <p>Effort: 30 mins</p>
+    <p>The practice problems for this Lab will provide hands on experience with string patterns, sorting result sets and grouping result sets. You will also learn how to run SQL scripts to create several tables at once, as well as how to load data into tables from .csv files.</p>
+    <h3>HR Database</h3>
+    <p>We will be working on a sample HR database for this Lab. This HR database schema consists of 5 tables called EMPLOYEES, JOB_HISTORY, JOBS, DEPARTMENTS and LOCATIONS. Each table has a few rows of sample data The following diagram shows the tables for the HR database.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/Sample_1.PNG" alt="image">
+    </p>
+    <p>To complete this lab you will utilize Db2 database service on IBM Cloud as you did for the previous lab. There are three parts to this lab:</p>
+    <p>I. Creating tables</p>
+    <p>II. Loading data into tables</p>
+    <p>III.Composing and running queries</p>
+    <p>If you do not yet have access to Db2 on IBM Cloud, please refer to Lab Instructions in the Module/Week 1.</p>
+    <p>Rather than create each table manually by typing the DDL commands in the SQL editor, you will execute a script containing the create table commands for all the tables. Following step by step instructions are provided to perform this:</p>
+    <p>1) Download the script file <strong>Script_Create_Tables.sql</strong> provided on the Lab page</p>
+    <p>2) Login to IBM Cloud and go to the Resources Dashboard: <a href="https://cloud.ibm.com/resources?cm_mmc=Email_Newsletter-_-Developer_Ed%2BTech-_-WW_WW-_-SkillsNetwork-Courses-IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork-20127838&#x26;cm_mmca1=000026UJ&#x26;cm_mmca2=10006555&#x26;cm_mmca3=M12345678&#x26;cvosrc=email.Newsletter.M12345678&#x26;cvo_campaign=000026UJ&#x26;cm_mmc=Email_Newsletter-_-Developer_Ed%2BTech-_-WW_WW-_-SkillsNetwork-Courses-IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork-20127838&#x26;cm_mmca1=000026UJ&#x26;cm_mmca2=10006555&#x26;cm_mmca3=M12345678&#x26;cvosrc=email.Newsletter.M12345678&#x26;cvo_campaign=000026UJ" target="_blank" rel="external">https://cloud.ibm.com/resources</a> where you can find the Db2 service that you created in a previous Lab. Click on the Db2-xx service. Next, open the Db2 Console by clicking on <code>Open Console</code> button. Go to the Run SQL page. The Run SQL tool enables you to run DDL and SQL statements.</p>
+    <p>3) Click on the <code>+</code> (Add New Script) icon</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/Add_new_Script.PNG" alt="image">
+    </p>
+    <p>Click on <code>From File</code></p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/from_file.PNG" alt="image">
+    </p>
+    <p>Locate the file Script_Create_Tables.sql that you downloaded to your computer earlier and open it.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/Sample_2.PNG" alt="image">
+    </p>
+    <p>4) Once the statements are in the SQL Editor tool , you can run the queries against the database by selecting the <code>Run All</code> button.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/Run_All.PNG" alt="image">
+    </p>
+    <p>5) On the right side of the SQL editor window you will see a Result section. Clicking on a query in the Result scetion will show the execution details of the job - whether it ran successfully, or had any errors or warnings. Ensure your queries ran successfully and created all the tables.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/Sample_3.PNG" alt="image">
+    </p>
+    <p>6) Now you can look at the tables you created. Navigate to the three bar menu icon, select 
+      <italic>Explore</italic>, then click on 
+      <italic>Tables</italic>.
+    </p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/Sample_4.PNG" alt="image">
+    </p>
+    <p>
+      Select the Schema corresponding to your Db2 userid. It is typically starts with 3 letters (not SQL) followed by 5 numbers (but will be different from the <strong>QWX76809</strong> example below). Then on the right side of the screen you should see the 5 newly created tables listed – DEPARTMENTS, EMPLOYEES, JOBS, JOB_HISTORY, and LOCATIONS (plus any other tables you may have created in previous labs e.g.
+      INSTRUCTOR, TEST, etc.).
+    </p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/Sample_5.PNG" alt="image">
+    </p>
+    <p>Click on any of the tables and you will see its SCHEMA definition (that is list of columns, their data types, etc).</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/Sample_6.PNG" alt="image">
+    </p>
+    <h2>Part II: LOADING DATA</h2>
+    <p>Now let us see how data can be loaded into Db2. We could manually insert each row into the table one by one but that would take a long time. Instead, Db2 (and almost every other database) allows you to Load data from .CSV files.</p>
+    <p>Please follow the steps below which explains the process of loading data into the tables we created earlier.</p>
+    <p>1) Download the 5 required data source files from the lab page in the course: <strong>(Employees.csv,Departments.csv,Jobs.csv,JobsHistory.csv,Locations.csv)</strong> to your computer:</p>
+    <p>2) First let us learn how to load data into the Employees table that we created earlier. From the 3 bar menu icon, select 
+      <italic>Load</italic> then 
+      <italic>Load Data</italic>:
+    </p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/load.PNG" alt="image">
+    </p>
+    <p>On the Load page that opens ensure 
+      <italic>My Computer</italic> is selected as the source. Click on the 
+      <italic>browse files</italic> link.
+    </p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/from_computer.PNG" alt="image">
+    </p>
+    <p>3) Choose the file <code>Emloyees.csv</code> that you downloaded to your computer and click 
+      <italic>Open</italic>.
+    </p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/select_file.PNG" alt="image">
+    </p>
+    <p>4) Once the File is selected click 
+      <italic>Next</italic> in the bottom right corner.
+    </p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/Next_1.PNG" alt="image">
+    </p>
+    <p>5) Select the schema for your Db2 Userid.</p>
+    <p><strong>NOTE:</strong> if you only see 2-3 schemas and not your Db2 schema then scroll down in that list till you see the desired one in which you previously created the tables.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/load_2.PNG" alt="image">
+    </p>
+    <p>It will show all the tables that have been created in this Schema previously, including the Employees table. Select the EMPLOYEES table, and choose 
+      <italic>Overwrite table with new data</italic> then click <code>Next</code>.
+    </p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/load_3.PNG" alt="image">
+    </p>
+    <p>6) Since our source data files do not contain any rows with column labels, turn off the setting for 
+      <italic>Header in first row</italic>. Also, click on the down arrow next to 
+      <italic>Date format</italic> and choose <code>MM/DD/YYYY</code> since that is how the date is formatted in our source file.
+    </p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/load_4.PNG" alt="image">
+    </p>
+    <p>7) Click <code>Next</code>. Review the Load setting and click <code>Begin Load</code> in the top-right corner.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/load_5.PNG" alt="image">
+    </p>
+    <p>8) After Loading is complete you will notice that we were successful in loading all 10 rows of the Employees table. If there are any Errors or Warnings you can view them on this screen.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/load_6.PNG" alt="image">
+    </p>
+    <p>9) You can see the data that was loaded by clicking on the View Table. Alternatively you can go into the Explore page and page select the correct schema, then the EMPLOYEES table, and click <code>View Data</code>.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/load_7.PNG" alt="image">
+    </p>
+    <p>10) Now its your turn to load the remaining 4 tables of the HR database – Locations, JobHistory, Jobs, and Departments. Please follow the steps above to load the data from the remaining source files.</p>
+    <p><strong>Question 1:</strong> Were there any warnings loading data into the JOBS table? What can be done to resolve this?</p>
+    <p>Hint: View the data loaded into this table and pay close attention to the JOB_TITLE column.</p>
+    <p><strong>Question 2:</strong> Did all rows from the source file load successfully in the DEPARTMENT table? If not, are you able to figure out why not?</p>
+    <p><strong>Hint:</strong> Look at the warning. Also, note the Primary Key for this table.</p>
+    <h2>Part III: COMPOSING AND RUNNING QUERIES</h2>
+    <p>You created the tables for the HR database schema and also learned how to load data into these tables. Now try and work on a few advanced DML queries that were introduced in this module.</p>
+    <p>Follow these steps to create and run the queries indicated below</p>
+    <p>1) Navigate to the Run SQL tool in Db2 on Cloud</p>
+    <p>2) Compose query and run it.</p>
+    <p>3) Check the Logs created under the Results section. Looking at the contents of the Log explains whether the SQL statement ran successfully. Also look at the query results to ensure the output is what you expected.</p>
+    <p><strong>Query 1: Retrieve all employees whose address is in Elgin,IL</strong></p>
+    <p>Hint: Use the LIKE operator to find similar strings</p>
+    <p><strong>Query 2: Retrieve all employees who were born during the 1970's.</strong></p>
+    <p>Hint: Use the LIKE operator to find similar strings</p>
+    <p><strong>Query 3: Retrieve all employees in department 5 whose salary is between 60000 and 70000 .</strong></p>
+    <p>Hint: Use the keyword BETWEEN for this query</p>
+    <p><strong>Query 4A: Retrieve a list of employees ordered by department ID.</strong></p>
+    <p>Hint: Use the ORDER BY clause for this query</p>
+    <p><strong>Query 4B: Retrieve a list of employees ordered in descending order by department ID and within each department ordered alphabetically in descending order by last name.</strong></p>
+    <p><strong>Query 5A: For each department ID retrieve the number of employees in the department.</strong></p>
+    <p>Hint: Use COUNT(*) to retrieve the total count of a column, and then GROUP BY</p>
+    <p><strong>Query 5B: For each department retrieve the number of employees in the department, and the average employees salary in the department.</strong></p>
+    <p>Hint: Use COUNT(*) to retrieve the total count of a column, and AVG() function to compute average salaries, and then group</p>
+    <p><strong>Query 5C: Label the computed columns in the result set of Query 5B as <code>NUM_EMPLOYEES</code> and <code>AVG_SALARY</code>.</strong></p>
+    <p>Hint: Use AS “LABEL_NAME” after the column name</p>
+    <p><strong>Query 5D: In Query 5C order the result set by Average Salary.</strong></p>
+    <p>Hint: Use ORDER BY after the GROUP BY</p>
+    <p><strong>Query 5E: In Query 5D limit the result to departments with fewer than 4 employees.</strong></p>
+    <p>Hint: Use HAVING after the GROUP BY, and use the count() function in the HAVING clause instead of the column label.</p>
+    <p><strong>Note: WHERE clause is used for filtering the entire result set whereas the HAVING clause is used for filtering the result of the grouping</strong></p>
+    <p><strong>BONUS Query 6: Similar to 4B but instead of department ID use department name. Retrieve a list of employees ordered by department name, and within each department ordered alphabetically in descending order by last name.</strong></p>
+    <p>Hint: Department name is in the DEPARTMENTS table. So your query will need to retrieve data from more than one table. Don’t worry if you are not able to figure this one out … we’ll cover working with multiple tables in the next lesson.</p>
+    <p>In this lab you learned how to work with string patterns, sorting result sets and grouping result sets.</p>
+    <p>Thank you for completing this lab! See solutions on the following page</p>
+    <h2>Lab Solutions</h2>
+    <p>Please follow these steps to get the answers to the queries:</p>
+    <p>1) Navigate to the Run SQL page on Db2 on Cloud.</p>
+    <p>2) Download the script file(
+      <bold>Module4_Queries.txt</bold>) or text files(
+      <bold>Modules4_Queries.sql</bold>). Open the file with extension .sql in the editor
+    </p>
+    <p>3) Run the queries. Looking at the contents of the Log explains that the SQL statement that we ran was successful. Here are the results for the queries:</p>
+    <p>Query 1: Output</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/output_1.PNG" alt="image">
+    </p>
+    <p>Query 2: Output</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/output_2.PNG" alt="image">
+    </p>
+    <p>Query 3: Output</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/output_3.PNG" alt="image">
+    </p>
+    <p>Query 4A: Output</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/output_4a.PNG" alt="image">
+    </p>
+    <p>Query 4B: Output</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/output_4b.PNG" alt="image">
+    </p>
+    <p>Query 5A: Output</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/output_5a.PNG" alt="image">
+    </p>
+    <p>Query 5B: Output</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/output_5b.PNG" alt="image">
+    </p>
+    <p>Query 5C: Output</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/output_5c.PNG" alt="image">
+    </p>
+    <p>Query 5D: Output</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/output_5d.PNG" alt="image">
+    </p>
+    <p>Query 5E: Output</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/output_5e.PNG" alt="image">
+    </p>
+    <p>BONUS Query 6: Output</p>
+    <p>Note that in the Query below <code>D</code> and <code>E</code> are aliases for the table names. Once you define an alias like <code>D</code> in your query, you can simply write <code>D.COLUMN_NAME</code> rather than the full form <code>DEPARTMENTS.COLUMN_NAME</code>.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%203/images/output_6.PNG" alt="image">
+    </p>
+    <h2>Author(s)</h2>
+    <h4>Rav Ahuja</h4>
+    <h4></h4>
+    <h2>Change log</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Version</th>
+          <th>Changed by</th>
+          <th>Change Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2020-10-21</td>
+          <td>2.0</td>
+          <td>Malika Singla</td>
+          <td>Migrated Lab to Markdown and added to course repo in GitLab</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2></h2>
+    <h3 align="center">© IBM Corporation 2020. All rights reserved.</h3>
+    <h3></h3>
+    <script>window.addEventListener('load', function() {
+snFaculty.inject();
+});</script>
+    <script src="https://skills-network-assets.s3.us.cloud-object-storage.appdomain.cloud/scripts/inject.min.js"></script>
+  </body>
+</html>

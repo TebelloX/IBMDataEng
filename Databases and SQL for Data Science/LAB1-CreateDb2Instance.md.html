@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://skills-network-assets.s3.us.cloud-object-storage.appdomain.cloud/styles/sn.css">
+  </head>
+  <body>
+    <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%201/images/IDSNlogo.png" width="200" height="200">
+    <h1>Hands-on Lab 1 : Create your IBM Cloud account and Provision your Database instance</h1>
+    <p>The hands-on labs for this course require an environment for working with a relational database. To get you up and running quickly we will do so on the Cloud, so you don't have to worry about downloading or installing anything, rather, simply access your database from your web browser. IBM Cloud provides a large number of Data and Analytics services, including IBM Db2, a next generation SQL database. And best of all you can create a Lite account on IBM Cloud and provision an instance of Db2 (Lite Plan) at no charge, and without providing any credit card information.</p>
+    <h1>Objectives</h1>
+    <p>After completing this lab, you will be able to:</p>
+    <ol>
+      <li>Register for IBM Cloud account</li>
+      <li>Create an instance of Db2 Service</li>
+      <li>Locate your IBM Cloud database instance</li>
+    </ol>
+    <h1>Exercise 1 : Create an IBM Cloud Lite account</h1>
+    <p>First let us introduce you to IBM Cloud. IBM Cloud is IBM's innovative cloud computing platform which combines platform as a service (PaaS) with infrastructure as a service (IaaS). It includes a rich catalog of cloud services that can be easily integrated with PaaS and IaaS to build business applications rapidly. It lets you quickly create, deploy, and manage your applications in the cloud. You don't have to deal with any of the underlying infrastructure. And you don't have to deal with the hosting and the managing of your cloud-based applications. You can use the tools and languages of your choice. IBM Cloud comes with a catalog full of awesome services, or APIs, from IBM and from third parties that you can use in your applications. You can scale your applications with literally a couple of clicks.</p>
+    <p>Please follow the steps given below to create an IBM Cloud account.</p>
+    <ol>
+      <li>Sign up for IBM Cloud at: <a href="https://cloud.ibm.com/registration?cm_mmc=Email_Newsletter-_-Developer_Ed%2BTech-_-WW_WW-_-SkillsNetwork-Courses-IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork-20127838&#x26;cm_mmca1=000026UJ&#x26;cm_mmca2=10006555&#x26;cm_mmca3=M12345678&#x26;cvosrc=email.Newsletter.M12345678&#x26;cvo_campaign=000026UJ&#x26;cm_mmc=Email_Newsletter-_-Developer_Ed%2BTech-_-WW_WW-_-SkillsNetwork-Courses-IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork-20127838&#x26;cm_mmca1=000026UJ&#x26;cm_mmca2=10006555&#x26;cm_mmca3=M12345678&#x26;cvosrc=email.Newsletter.M12345678&#x26;cvo_campaign=000026UJ" target="_blank" rel="external">https://cloud.ibm.com/registration</a></li>
+    </ol>
+    <p><strong>Note</strong>: If you already have an IBM Cloud account (perhaps you created it for another course), you can skip this step and simply log in. If your older IBM Cloud account trial has expired and is asking for a credit card to upgrade, you can instead create a new IBM Cloud account with a different email address.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%201/images/CreateAccount.jpg" alt="Provide details to create an IBM Cloud account."><br><br>
+    </p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%201/images/CreateAccountDetails.jpg" alt="Account details and email verification.">
+    </p>
+    <ol start="2">
+      <li>
+        <p>As part of the sign-up process you will receive an email in your inbox. You will need to click on the link in this email to <strong>verify your email</strong> and activate your account.</p>
+      </li>
+      <li>
+        <p>Log-in to IBM Cloud by going to the link in step 1.</p>
+      </li>
+    </ol>
+    <h1>Exercise 2 : Provision an instance of IBM Db2 Lite plan</h1>
+    <p>Now let us introduce you to Db2 on Cloud. IBM Db2 is a next generation SQL database provisioned for you in the cloud. You can use Db2 on Cloud just as you would use any database software (RDBMS), but without the overhead and expense of hardware setup or software installation and maintenance. Among the service plans offered for Db2 on IBM Cloud is the Lite plan, which is free to use. You can use your database instance to store relational data, analyze data using built-in SQL editor, or by connecting your own apps.</p>
+    <p>Note that IBM Cloud also provides other variants of Db2 such as Db2 Hosted and Db2 Warehouse on Cloud, which is also referred to in this course. However, for the labs in this course we will utilize the Db2 service since it comes with a Lite plan which is free to use.</p>
+    <p>Please follow the steps given below to provision an instance of a Db2 on IBM Cloud.</p>
+    <ol>
+      <li>Ensure you are logged in to IBM Cloud and go to: <a href="https://cloud.ibm.com/catalog/services/db2?cm_mmc=Email_Newsletter-_-Developer_Ed%2BTech-_-WW_WW-_-SkillsNetwork-Courses-IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork-20127838&#x26;cm_mmca1=000026UJ&#x26;cm_mmca2=10006555&#x26;cm_mmca3=M12345678&#x26;cvosrc=email.Newsletter.M12345678&#x26;cvo_campaign=000026UJ" target="_blank" rel="external">https://cloud.ibm.com/catalog/services/db2</a></li>
+    </ol>
+    <p><strong>Note</strong>: Alternatively, you can click on the <strong>Catalog</strong> menu item and select <strong>Services</strong>, scroll down to the section for <strong>Databases</strong>, and click on the tile for <strong>Db2</strong> service.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%201/images/Catalog.jpg" alt="Catalog shows Database section with choices.">
+    </p>
+    <p><strong>IMPORTANT</strong>: Make sure you choose <strong>Db2</strong>. Do NOT choose <em>Db2 Warehouse</em> or <em>Db2 Hosted</em> or <em>SQL Query</em>.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%201/images/Db2.jpg" alt="Choose correct Db2 instance.">
+    </p>
+    <p><strong>Note</strong>: Depending on the Country of your IBM Cloud account a region/location to deploy will be pre-selected. For example, if you are in the US, the default Datacenter location will be Dallas. Users from UK will see London and so on. It is best to go with the default location that is closest to you.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%201/images/Db2Details.jpg" alt="Datacenter location for IBM Cloud accounts.">
+    </p>
+    <ol start="2">
+      <li>
+        <p>Scroll down to Pricing Plans and select the <strong>Lite plan</strong> (it’s a free plan and does not require credit card).></p>
+      </li>
+      <li>
+        <p>Then click on the <strong>Create</strong> button towards the lower-right of the page.</p>
+      </li>
+    </ol>
+    <p>It will spin for a few seconds (typically less than 30s) and then you should see a Service Created message indicating that your instance of Db2 was created successfully.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%201/images/Instance.jpg" alt="Choose a plan to create an instance.">
+    </p>
+    <h1>Exercise 3 : Use your database instance</h1>
+    <p>Now that you have created your database instance, you need to know how to get to it and start work.</p>
+    <p>To access your database instance, go to your IBM Cloud dashboard and click <strong>Services</strong>.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%201/images/Services.jpg" alt="Services include the new database instance.">
+    </p>
+    <p>In the Resource list, click the name of the new database instance.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%201/images/ResourceList.jpg" alt="The new database instance.">
+    </p>
+    <p>To manage the tables, queries and relationships in the database instance, on the database instance page, click <strong>Open Console</strong>.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%201/images/DBInstance.jpg" alt="Open the console.">
+    </p>
+    <p>The Console opens in a new tab, showing the existing <strong>Schemas</strong>.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%201/images/Schemas.jpg" alt="Console lists the existing schemas.">
+    </p>
+    <p>You can explore the database instance by using the hamburger menu at the upper-left.</p>
+    <p>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Module%201/images/Hamburger.jpg" alt="Explore the database instance with the hamburger menu.">
+    </p>
+    <h1>Summary</h1>
+    <p>You can now find your way into and around the database instance, and you will use these skills in later labs.</p>
+    <h1>Author(s)</h1>
+    <h4><a href="https://www.linkedin.com/in/ravahuja/">Rav Ahuja</a></h4>
+    <h4></h4>
+    <h1>Other Contributor(s)</h1>
+    <p>Rose Malcolm</p>
+    <h1>Changelog</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Version</th>
+          <th>Changed by</th>
+          <th>Change Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>25-Aug-2020</td>
+          <td>8.1</td>
+          <td>Malika Singla</td>
+          <td>Updated Db2 screenshots</td>
+        </tr>
+        <tr>
+          <td>25-Aug-2020</td>
+          <td>8.0</td>
+          <td>Lavanya</td>
+          <td>Organized folders in modules</td>
+        </tr>
+        <tr>
+          <td>25-Jun-2020</td>
+          <td>7.1</td>
+          <td>Steve Hord</td>
+          <td>Revised Objectives section</td>
+        </tr>
+        <tr>
+          <td>05-Jun-2020</td>
+          <td>7.0</td>
+          <td>Rose Malcolm</td>
+          <td>Updated and converted to markdown in GitLab</td>
+        </tr>
+        <tr>
+          <td>06-Mar-2020</td>
+          <td>6.1</td>
+          <td>Rav Ahuja</td>
+          <td>Updated with new screenshots</td>
+        </tr>
+        <tr>
+          <td>01-May-2018</td>
+          <td>1.0</td>
+          <td>Rav Ahuja</td>
+          <td>Created initial version by adapting Db2 Warehouse lab to Db2 Lite</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2></h2>
+    <h3 align="center">© IBM Corporation 2020. All rights reserved.</h3>
+    <h3></h3>
+    <script>window.addEventListener('load', function() {
+snFaculty.inject();
+});</script>
+    <script src="https://skills-network-assets.s3.us.cloud-object-storage.appdomain.cloud/scripts/inject.min.js"></script>
+  </body>
+</html>
